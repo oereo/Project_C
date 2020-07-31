@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Central Management System</title>
+
+    <!-- 합쳐지고 최소화된 최신 CSS --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> 
+    
+    <!-- 부가적인 테마 --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css"> <!-- 합쳐지고 최소화된 최신 자바스크립트 --> <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src ="https://code.highcharts.com/modules/series-label.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/modules/data.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <!-- vue.js --> 
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    {% comment %} <div id="app_weather">
+        <h1> 날짜 </h1>
+        <ul>
+{#            {% for data in day %}#}
+{#                <li><h4> date : {{ data }} </h4></li>#}
+{#            {% endfor %}#}
+            <li v-for="d in {{ day }}">
+                <h4> Day - [[ d ]] </h4>
+            </li>
+        </ul>
+        <br/>
+
+        <h1> 기온 변화 </h1>
+        <ul>
+            {% for data in temperature %}
+                <li><h4> 온도 : {{ data }} </h4></li>
+            {% endfor %}
+        </ul>
+    </div> {% endcomment %}
+
+<script type = "text/javascript">
+    $.get('/data.json', function(jsondata) {
+
+            Highcharts.chart('container', {
+
+               chart: {
+
+                    type: 'spline'
+
+                },
+
+                data: jsondata,
+
+            });
+
+        });
+    {% comment %} var app_weather = new Vue({
+        delimiters: ['[[', ']]'],
+        el:'#app_weather',
+        data:{
+            day : {{ day }},
+            temperature : {{ temperature }}
+        }
+    })
+
+
+    <script type="text/javascript">
+
+        $.get('/data.json', function(jsondata) {
+
+            Highcharts.chart('container', {
+
+               chart: {
+
+                    type: 'line'
+
+                },
+
+                xAxis: {
+                    categories: {{ time_unit }}
+                },
+
+                yAxis: {
+                    title: {
+                        text: '온도 (°C)'
+                    }
+                },
+                plotOptions: {
+                     line: { 
+                         dataLabels: { 
+                             enabled: true 
+                        }, 
+                        enableMouseTracking: false 
+                    } 
+                },
+
+                series: [{
+                    name: '서울',
+                    data: {{ data }}
+                }]
+
+
+            });
+
+        }); {% endcomment %}
+
+</script>
+
+</body>
+
+</html>
