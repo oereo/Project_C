@@ -1,8 +1,11 @@
 from django.shortcuts import render, HttpResponse
 import random, json
 
-# Create your views here.
+from urllib.request import urlopen, Request
+import urllib
+import bs4
 
+# Create your views here.
 def data_json(request):
     
     Fluctuation_ratio = 50  # 등락비율(%)
@@ -49,6 +52,18 @@ def data_json(request):
 
 def home(request):
     return render(request,'home.html')
+
+
+location = '장기동'
+enc_location = urllib.parse.quote(location + '+날씨')
+
+url = 'https://search.naver.com/search.naver?ie=utf8&query='+ enc_location
+
+req = Request(url)
+page = urlopen(req)
+html = page.read()
+soup = bs4.BeautifulSoup(html,'html5lib')
+print('현재 ' + location + ' 날씨는 ' + soup.find('p', class_='info_temperature').find('span', class_='todaytemp').text + '도 입니다.')
 
 
 # def home(request):
