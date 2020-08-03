@@ -1,10 +1,34 @@
 from django.shortcuts import render, HttpResponse
 import random, json
 
-from urllib.request import urlopen, Request
-import urllib
-import bs4
+import requests
+from bs4 import BeautifulSoup as BS
 
+url = 'http://www.weather.go.kr/weather/observation/currentweather.jsp'
+
+response = requests.get(url)
+
+if(response.status_code != 200):
+    print("%d 에러가 발생하였습니다" % response.status_code)
+    quit()
+
+soup = BS(response.content, 'html.parser')
+table = soup.find('table', {'class':'table_develop3'})
+
+data = []
+for tr in table.find_all('tr'):
+    tds = list(tr.find_all('td'))
+    for td in tds:
+        if td.find('a'):
+            point = td.find('a').text
+            temperature = tds[5].text
+            humidity = tds[9].text
+            data.append([point, temperature, humidity])
+
+# with open('weather.csv') as file:
+#     file.write('지역, 기온, 습도 \n')
+#     for i in data:
+#         file.write('{0}, {1}, {2} \n'.format(i[0], i[1], [2]))
 # Create your views here.
 def data_json(request):
     
@@ -54,17 +78,7 @@ def home(request):
     return render(request,'home.html')
 
 
-location = '장기동'
-enc_location = urllib.parse.quote(location + '+날씨')
-
-url = 'https://search.naver.com/search.naver?ie=utf8&query='+ enc_location
-
-req = Request(url)
-page = urlopen(req)
-html = page.read()
-soup = bs4.BeautifulSoup(html,'html5lib')
-print('현재 ' + location + ' 날씨는 ' + soup.find('p', class_='info_temperature').find('span', class_='todaytemp').text + '도 입니다.')
-
+    
 
 # def home(request):
 #     template_data = {}
