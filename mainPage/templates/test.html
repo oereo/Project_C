@@ -1,0 +1,88 @@
+<!-- <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+    {% comment %} <div id="app_weather">
+        <h1> 날짜 </h1>
+        <ul>
+{#            {% for data in day %}#}
+{#                <li><h4> date : {{ data }} </h4></li>#}
+{#            {% endfor %}#}
+            <li v-for="d in {{ day }}">
+                <h4> Day - [[ d ]] </h4>
+            </li>
+        </ul>
+        <br/>
+
+        <h1> 기온 변화 </h1>
+        <ul>
+            {% for data in temperature %}
+                <li><h4> 온도 : {{ data }} </h4></li>
+            {% endfor %}
+        </ul>
+    </div> {% endcomment %}
+
+<script type = "text/javascript">
+    $.get('/data.json', function(jsondata) {
+
+            Highcharts.chart('container', {
+
+               chart: {
+
+                    type: 'spline'
+
+                },
+
+                data: jsondata,
+
+            });
+
+        });
+    {% comment %} var app_weather = new Vue({
+        delimiters: ['[[', ']]'],
+        el:'#app_weather',
+        data:{
+            day : {{ day }},
+            temperature : {{ temperature }}
+        }
+    })
+
+
+    <script type="text/javascript">
+
+        $.get('/data.json', function(jsondata) {
+
+            Highcharts.chart('container', {
+
+               chart: {
+
+                    type: 'line'
+
+                },
+
+                xAxis: {
+                    categories: {{ time_unit }}
+                },
+
+                yAxis: {
+                    title: {
+                        text: '온도 (°C)'
+                    }
+                },
+                plotOptions: {
+                     line: { 
+                         dataLabels: { 
+                             enabled: true 
+                        }, 
+                        enableMouseTracking: false 
+                    } 
+                },
+
+                series: [{
+                    name: '서울',
+                    data: {{ data }}
+                }]
+
+
+            });
+
+        }); {% endcomment %}
+
+</script> -->
