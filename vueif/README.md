@@ -1,4 +1,4 @@
-# [Vuetify Material Dashboard](https://www.creative-tim.com/product/vuetify-material-dashboard?ref=vtymdp-readme) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/share?url=https%3A%2F%2Fwww.creative-tim.com%2Fvuetify-material-dashboard&text=Vuetify%20Material%20Dashboard%20PRO%20by%20Creative%20Tim&via=CreativeTim&hashtags=vuejs%20%23vuex%20%23vuetify%20%23material)
+<!-- # [Vuetify Material Dashboard](https://www.creative-tim.com/product/vuetify-material-dashboard?ref=vtymdp-readme) [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&logo=twitter)](https://twitter.com/share?url=https%3A%2F%2Fwww.creative-tim.com%2Fvuetify-material-dashboard&text=Vuetify%20Material%20Dashboard%20PRO%20by%20Creative%20Tim&via=CreativeTim&hashtags=vuejs%20%23vuex%20%23vuetify%20%23material)
 
 
 ![version](https://img.shields.io/badge/version-2.1.0-blue.svg) [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/ct-vuetify-material-dashboard.svg)](https://github.com/creativetimofficial/ct-vuetify-material-dashboard/issues?q=is%3Aopen+is%3Aissue) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/ct-vuetify-material-dashboard.svg?maxAge=259200)](https://github.com/creativetimofficial/ct-vuetify-material-dashboard/issues?q=is%3Aissue+is%3Aclosed) [![Join the chat at https://gitter.im/NIT-dgp/General](https://badges.gitter.im/NIT-dgp/General.svg)](https://gitter.im/creative-tim/material-dashboard) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
@@ -247,4 +247,4 @@ Dribbble: <https://dribbble.com/creativetim>
 
 Google+: <https://plus.google.com/+CreativetimPage>
 
-Instagram: <https://instagram.com/creativetimofficial>
+Instagram: <https://instagram.com/creativetimofficial> -->
