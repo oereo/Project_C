@@ -195,7 +195,7 @@
           </template>
 
           <h3 class="card-title font-weight-light mt-2 ml-2">
-            Completed Tasks
+            온도
           </h3>
 
           <p class="d-inline-flex font-weight-light ml-2 mt-1">
@@ -402,7 +402,7 @@
           data: {
             labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
             series: [
-              [12, 17, 7, 17, 23, 18, 38],
+              [14, 17, 7, 17, 23, 18, 38],
             ],
           },
           options: {

@@ -25,8 +25,8 @@ SECRET_KEY = 'dx4@b)gj9d@z_*fw4m**fyim1$oj9i#ybm5s=4f36s0e66-iqy'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 

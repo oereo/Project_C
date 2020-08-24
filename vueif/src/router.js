@@ -24,6 +24,11 @@ export default new Router({
           component: () => import('@/views/dashboard/pages/UserProfile'),
         },
         {
+          name: 'User Signup',
+          path: 'pages/signup',
+          component: () => import('@/views/dashboard/pages/UserSignup'),
+        },
+        {
           name: 'Notifications',
           path: 'components/notifications',
           component: () => import('@/views/dashboard/component/Notifications'),

@@ -114,6 +114,14 @@
     >
       <v-icon>mdi-account</v-icon>
     </v-btn>
+    <v-btn
+      class="ml-2"
+      min-width="0"
+      text
+      to="/pages/signup"
+    >
+      <v-icon>mdi-account-plus</v-icon>
+    </v-btn>
   </v-app-bar>
 </template>
 
