@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-
+import datetime
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -28,13 +28,10 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1']
 CORS_ORIGIN_ALLOW_ALL = True
 
-# Application definition
-
-REST_FRAMEWORK = {
-    "DEFAULT_AUTHENTICATION_CLASSES": ("knox.auth.TokenAuthentication",),
-}
 
 INSTALLED_APPS = [
+    'django.contrib.sites',
+    #default
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,11 +39,54 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainPage',
-    'rest_framework',
+    'user',
+    
     'knox',
+
+    'rest_auth',
+    'rest_auth.registration',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    'rest_framework',
+    'rest_framework.authtoken',
+    'corsheaders',
 ]
 
+# cors header setting
+CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_WHITELIST = [
+    "http://127.0.0.1:8080"
+]
+CORS_ALLOW_METHODS = (
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+)
+CORS_ALLOW_HEADERS = (
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'access-control-request-method',
+    'access-control-request-headers',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+)
+
+
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    #default
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -55,6 +95,36 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+AUTH_USER_MODEL = "user.CustomUser"
+SITE_ID = 1
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        #'rest_framework_simplejwt.authentication.JWTAuthentication',
+
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+    'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+JWT_AUTH = {
+# If the secret is wrong, it will raise a jwt.DecodeError telling you as such. You can still get at the payload by setting the JWT_VERIFY to False.
+'JWT_VERIFY': True,
+# You can turn off expiration time verification by setting JWT_VERIFY_EXPIRATION to False.
+# If set to False, JWTs will last forever meaning a leaked token could be used by an attacker indefinitely.
+'JWT_VERIFY_EXPIRATION': True,
+# This is an instance of Python's datetime.timedelta. This will be added to datetime.utcnow() to set the expiration time.
+# Default is datetime.timedelta(seconds=300)(5 minutes).
+'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=1),
+'JWT_ALLOW_REFRESH': True,
+'JWT_AUTH_HEADER_PREFIX': 'JWT',
+}
+REST_USE_JWT = True
 
 ROOT_URLCONF = 'managementSystem.urls'
 
