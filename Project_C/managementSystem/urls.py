@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import url
 from django.urls import path, include
+from django.conf import settings
 
 #from rest_framework_simplejwt
 #import TokenObtatinPairView, TokenRefreshView
@@ -36,7 +37,7 @@ urlpatterns = [
     # 토큰 발급 및 재발급 페이지 설정
     #path('api/rest-auth/obtain_token/', TokenObtatinPairView.as_view(), name="obtain-jwt"),
     #path('api/rest-auth/refresh_token/', TokenRefreshView.as_view(), name="refresh-jwt"),
-    path('api/rest-auth/', include('rest_framework_simplejwt.urls')),
+    #path('api/rest-auth/', include('rest_framework_simplejwt.urls')),
 
     #path('api/rest-auth/obtain_token/', obtain_jwt_token, name="obtain-jwt"),
     #path('api/rest-auth/refresh_token/', refresh_jwt_token, name="refresh-jwt"),
