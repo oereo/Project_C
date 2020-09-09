@@ -25,12 +25,12 @@ import mainPage.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', mainPage.views.home, name="home"),
-    path('data.json', mainPage.views.data_json),
+    #path('', mainPage.views.home, name="home"),
+    #path('data.json', mainPage.views.data_json),
     #
     # path('api/', include("mainPage.urls")),
     # path("api/auth", include("knox.urls")),
-    path("api/", include("user.urls")),
+    #path("api/", include("user.urls")),
     path("api-auth/", include("rest_framework.urls")),
     #login, registration등 path 설정
     path("api/rest-auth/", include("rest_auth.urls")),

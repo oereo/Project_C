@@ -39,49 +39,35 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mainPage',
-    'user',
-    
-    'knox',
-
-    'rest_auth',
-    'rest_auth.registration',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-
-    'rest_framework',
-    'rest_framework.authtoken',
-    #'rest_framework_jwt',
-    'corsheaders',
+    #'user',
 ]
 
 # cors header setting
-CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = [
-    "http://127.0.0.1:8080"
-]
-CORS_ALLOW_METHODS = (
-    'DELETE',
-    'GET',
-    'OPTIONS',
-    'PATCH',
-    'POST',
-    'PUT',
-)
-CORS_ALLOW_HEADERS = (
-    'accept',
-    'accept-encoding',
-    'authorization',
-    'access-control-request-method',
-    'access-control-request-headers',
-    'content-type',
-    'dnt',
-    'origin',
-    'user-agent',
-    'x-csrftoken',
-    'x-requested-with',
-)
+# CORS_ORIGIN_ALLOW_ALL = False
+# CORS_ORIGIN_WHITELIST = [
+#     "http://127.0.0.1:8080"
+# ]
+# CORS_ALLOW_METHODS = (
+#     'DELETE',
+#     'GET',
+#     'OPTIONS',
+#     'PATCH',
+#     'POST',
+#     'PUT',
+# )
+# CORS_ALLOW_HEADERS = (
+#     'accept',
+#     'accept-encoding',
+#     'authorization',
+#     'access-control-request-method',
+#     'access-control-request-headers',
+#     'content-type',
+#     'dnt',
+#     'origin',
+#     'user-agent',
+#     'x-csrftoken',
+#     'x-requested-with',
+# )
 
 
 
@@ -97,14 +83,14 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-AUTH_USER_MODEL = "user.CustomUser"
+#AUTH_USER_MODEL = "user.CustomUser"
 SITE_ID = 1
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
         'rest_framework.authentication.SessionAuthentication',
-        'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+        #'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
         #'rest_framework_simplejwt.authentication.JWTAuthentication',
 
     ),
