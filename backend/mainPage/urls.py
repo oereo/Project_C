@@ -3,10 +3,10 @@ from django.urls import path, include
 from mainPage import views
 
 urlpatterns = [
-    path('', views.index, name ="index"),
+    path('index', views.index, name ="index"),
     path('dashboard/', views.dashboard, name ="dashboard"),
     path('icons/', views.icons, name ="icons"),
-    path('login/', views.loginp, name ="login"),
+    path('', views.loginp, name ="login"),
     path('map/', views.map, name ="map"),
     path('maps/', views.maps, name ="maps"),
     path('profile/', views.profile, name ="profile"),
