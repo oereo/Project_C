@@ -37,3 +37,25 @@ def login_user(request):
         else:
             return render(request, 'login.html')
     return render(request, 'login.html')
+
+def signup_user(request):
+    if request.method == "POST":
+        if request.POST['password'] == request.POST['password_confirm']:
+            user = User.objects.create_bussiness_user(
+                # request.POST['email'],
+                phone_number = request.POST['phonenumber'],
+                password = request.POST['password'],
+                email = request.POST['username'],
+                nickname = request.POST['nickname'],
+                date_of_birth = request.POST['dateofbirth'],
+                #seller_address = request.POST['seller_address'],
+                business_number = request.POST['business_number'],
+                team = request.POST['team'],
+            )
+            auth.login(request, user)
+
+        return redirect('home')
+        
+    else:
+        #form = UserCreationForm()
+        return render(request, 'register.html')

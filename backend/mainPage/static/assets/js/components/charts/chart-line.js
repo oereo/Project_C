@@ -42,10 +42,10 @@ var SalesChart = (function() {
               var content = '';
 
               if (data.datasets.length > 1) {
-                content += '<span class="popover-body-label mr-auto">' + label + '</span>';
+                content += '' + label + '</span>';
               }
 
-              content += '<span class="popover-body-value">$' + yLabel + 'k</span>';
+              content += '' + yLabel + 'k</span>';
               return content;
             }
           }
@@ -55,7 +55,7 @@ var SalesChart = (function() {
         labels: ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
           label: 'Performance',
-          data: [0, 20, 10, 30, 15, 40, 20, 60, 60]
+          data: [50, 20, 10, 30, 15, 40, 20, 60, 60]
         }]
       }
     });

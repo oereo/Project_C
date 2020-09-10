@@ -24,8 +24,8 @@ var BarsChart = (function() {
 			data: {
 				labels: ['Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 				datasets: [{
-					label: 'Sales',
-					data: [25, 20, 30, 22, 17, 29]
+					label: 'Accidents',
+					data: [13, 20, 4, 22, 17, 7]
 				}]
 			}
 		});
