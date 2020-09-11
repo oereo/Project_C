@@ -72,9 +72,18 @@ class User(AbstractBaseUser):
         null=False,
         unique=True
     )
+
+    MODE_CHOICES = (
+    ('서울', '서울'), 
+    ('부산', '부산'),
+    ('대전', '대전'),
+    ('대구', '대구'),
+    ('인천', '인천'),
+    ('강릉', '강릉'),
+    )
     phone_number = models.CharField(max_length=14, null = False, unique = True)
     date_of_birth = models.DateField()
-    business_number = models.CharField(max_length = 30, null = True, unique = True)
+    business_number = models.CharField(max_length = 30, null = True, unique = True, choices = MODE_CHOICES) 
     team = models.CharField(max_length = 10, null = True, unique = True)
     #seller_name = models.CharField(max_length = 30, null = True, unique = True)
 
@@ -101,4 +110,10 @@ class User(AbstractBaseUser):
     def is_staff(self):
         return self.is_admin
 
-#class normalUser
+class Area(models.Model):
+    user = models.ForeignKey('account.User', on_delete=models.CASCADE, related_name='areas')
+    author = models.CharField(max_length=200)
+    text = models.TextField()
+
+    def __str__(self):
+        return self.text
