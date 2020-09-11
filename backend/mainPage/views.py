@@ -4,6 +4,12 @@ from account.models import User
 from django.contrib.auth import models, views, login
 
 
+# for webCrawling 
+from bs4 import BeautifulSoup as BS
+import random
+import json
+import requests
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -59,3 +65,7 @@ def signup_user(request):
     else:
         #form = UserCreationForm()
         return render(request, 'register.html')
+
+
+def Crawling(request):
+    url = 'http://www.weather.go.kr/weather/observation/currentweather.jsp'
