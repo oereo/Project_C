@@ -69,18 +69,18 @@ def signup_user(request):
         if request.POST['password'] == request.POST['password_confirm']:
             user = User.objects.create_bussiness_user(
                 # request.POST['email'],
-                phone_number = request.POST['phonenumber'],
+                phone_number = request.POST['phone_number'],
                 password = request.POST['password'],
-                email = request.POST['username'],
+                email = request.POST['email'],
                 nickname = request.POST['nickname'],
-                date_of_birth = request.POST['dateofbirth'],
+                date_of_birth = request.POST['date_of_birth'],
                 #seller_address = request.POST['seller_address'],
                 business_number = request.POST['business_number'],
                 team = request.POST['team'],
             )
             auth.login(request, user)
 
-        return redirect('home')
+        return redirect('index')
         
     else:
         #form = UserCreationForm()

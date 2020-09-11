@@ -111,8 +111,8 @@ class User(AbstractBaseUser):
         return self.is_admin
 
 class Area(models.Model):
-    user = models.ForeignKey('account.User', on_delete=models.CASCADE, related_name='areas')
-    author = models.CharField(max_length=200)
+    areaUser = models.ForeignKey('account.User', on_delete=models.CASCADE, related_name='areas')
+    measuringInstrument = models.CharField(max_length=200)
     text = models.TextField()
 
     def __str__(self):

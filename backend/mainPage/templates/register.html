@@ -156,13 +156,14 @@
               <div class="text-center text-muted mb-4">
                 <small>Or sign up with credentials</small>
               </div>
-              <form role="form">
+              <form role="form" action = "{% url 'signup_user' %}" method = "POST">
+                  {% csrf_token %}
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Name" type="text">
+                    <input class="form-control" placeholder="Name" type="text" name = "nickname">
                   </div>
                 </div>
                 <div class="form-group">
@@ -170,7 +171,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Email" type="email">
+                    <input class="form-control" placeholder="Email" type="email" name = "email">
                   </div>
                 </div>
                 <div class="form-group">
@@ -178,7 +179,15 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="password">
+                    <input class="form-control" placeholder="Password" type="password" name = "password">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group input-group-merge input-group-alternative">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                    </div>
+                    <input class="form-control" placeholder="password_confirm" type="password" name = "password_confirm">
                   </div>
                 </div>
                 <div class="form-group">
@@ -186,22 +195,14 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                       </div>
-                      <input class="form-control" placeholder="건설현장지역" type="text">
-                    </div>
-                  </div><div class="form-group">
-                      <div class="input-group input-group-merge input-group-alternative mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                        </div>
-                        <input class="form-control" placeholder="이름" type="text">
-                      </div>
+                      <input class="form-control" placeholder="건설현장지역" type="text" name = "business_number">
                     </div>
                     <div class="form-group">
                         <div class="input-group input-group-merge input-group-alternative mb-3">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                           </div>
-                          <input class="form-control" placeholder="부서/직급" type="text">
+                          <input class="form-control" placeholder="부서/직급" type="text" name = "team">
                         </div>
                       </div>
                       <div class="form-group">
@@ -209,7 +210,7 @@
                             <div class="input-group-prepend">
                               <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                             </div>
-                            <input class="form-control" placeholder="Date_of_birth" type="text">
+                            <input class="form-control" placeholder="Date_of_birth" type="text" name = "date_of_birth">
                           </div>
                         </div>
                         <div class="form-group">
@@ -217,7 +218,7 @@
                               <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                               </div>
-                              <input class="form-control" placeholder="PhoneNumber" type="text">
+                              <input class="form-control" placeholder="PhoneNumber" type="text" name = "phone_number">
                             </div>
                           </div>
                 <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
@@ -232,7 +233,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4">Create account</button>
+                  <button type="submit" class="btn btn-primary mt-4">Create account</button>
                 </div>
               </form>
             </div>
