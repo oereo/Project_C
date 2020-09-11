@@ -15,4 +15,7 @@ urlpatterns = [
     path('upgrade/', views.upgrade, name ="upgrade"),
     path('login_user/', views.login_user, name ="login_user"),
 
+    # for Crawling
+    #path('Crawling/', views.Crawling, name = "Crawling"),
+
 ]
