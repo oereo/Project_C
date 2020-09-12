@@ -452,9 +452,15 @@
                           <div class="col">
                             <h5 class="card-title text-uppercase text-muted mb-0">오늘의 기온</h5>
                             <span class="h2 font-weight-bold mb-0">
-                              df
-                              {% for i in data_temp %}
-                                {{i}}
+                              
+                              {% for j in data_temp %}
+                                  {% if j.0 == user.business_number %}
+                                  {{j.1}}
+                                  {% endif %}
+                                
+                              
+                                  
+                                
                               {% endfor %}
                             </span>
                           </div>

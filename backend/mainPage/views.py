@@ -23,6 +23,7 @@ def index(request):
     table = soup.find('table', {'class': 'table_develop3'})
 
     data_temp = []
+    point_temp = []
     for tr in table.find_all('tr'):
         tds = list(tr.find_all('td'))
         for td in tds:
@@ -30,8 +31,10 @@ def index(request):
                 point = td.find('a').text
                 temperature = tds[5].text
                 humidity = tds[9].text
+                point_temp.append(point)
                 data_temp.append([point, temperature, humidity])
-    return render(request, "index.html", {'data_temp':data_temp})
+    length = len(data_temp)
+    return render(request, "index.html", {'data_temp':data_temp, 'point_temp':point_temp, 'length' : length})
 
 def dashboard(request):
     return render(request, 'dashboard.html')
