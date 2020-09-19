@@ -29,10 +29,13 @@ def index(request):
         for td in tds:
             if td.find('a'):
                 point = td.find('a').text
+                rain = tds[8].text
+                wind_dir = tds[10].text 
+                wind_speed = tds[11].text
                 temperature = tds[5].text
                 humidity = tds[9].text
                 point_temp.append(point)
-                data_temp.append([point, temperature, humidity])
+                data_temp.append([point, temperature, humidity, rain, wind_dir, wind_speed])
     length = len(data_temp)
     return render(request, "index.html", {'data_temp':data_temp, 'point_temp':point_temp, 'length' : length})
 
