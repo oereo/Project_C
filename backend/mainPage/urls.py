@@ -16,5 +16,6 @@ urlpatterns = [
     path('login_user/', views.login_user, name ="login_user"),
     path('signup_user/', views.signup_user, name = "signup_user"),
     path('profile_update/', views.profile_update, name = "profile_update"),
+    path('pick_instrument/<int:instrument_id>', views.pick_instrument, name = "pick_instrument"),
 
 ]

@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from account.models import User
 from django.contrib.auth import models, views, login
-from .models import Profile
+from .models import Profile, Area
 
 
 # for webCrawling 
@@ -105,6 +105,22 @@ def profile_update(request):
         safe_percent = profile.safe_percent
         profile.save()
         return render(request, 'profile.html', {'worker_number' : worker_number, 'instrument_number' : instrument_number, 'safe_percent': safe_percent})
+
+
+def pick_instrument(request, instrument_id):
+    pick_instrument = Area.objects.get(pk = instrument_id)#Poll객체를 구분하는 녀석은 poll_id이므로 PK지정
+    selection = request.POST['choice']
+ 
+    try:
+        #choice모델을 불러와서 1을 증가시킨다 
+        choice = Choice.objects.get(instrument_id = pick_instrument.id)
+        # choice.votes += 1
+        choice.save()
+    except:
+        choice = Area(instrument_id = pick_instrument.id)
+        choice.save()
+    return redirect('icons') 
+
 
 
 

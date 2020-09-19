@@ -14,3 +14,9 @@ class Profile(models.Model):
     worker_number = models.TextField(max_length=500, blank=True)
     instrument_number = models.CharField(max_length=30, blank=True)
     safe_percent = models.CharField(max_length = 30 ,null=True, blank=True)
+
+class Instrument(models.Model):
+    instrument = models.CharField(max_length = 30)
+
+    def __str__(self):
+        return self.instrument
