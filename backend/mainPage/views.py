@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import auth
 from account.models import User
 from django.contrib.auth import models, views, login
+from .models import Profile
 
 
 # for webCrawling 
@@ -92,5 +93,20 @@ def signup_user(request):
         #form = UserCreationForm()
         return render(request, 'register.html')
 
+def profile_update(request):
+    if request.method == "POST":
+        profile = Profile()
+        profile.user = request.user
+        profile.worker_number = request.POST['worker_number']
+        profile.instrument_number = request.POST['instrument_number']
+        profile.safe_percent = request.POST['safe_percent']
+        worker_number = profile.worker_number
+        instrument_number = profile.instrument_number
+        safe_percent = profile.safe_percent
+        profile.save()
+        return render(request, 'profile.html', {'worker_number' : worker_number, 'instrument_number' : instrument_number, 'safe_percent': safe_percent})
 
-    
+
+
+
+
