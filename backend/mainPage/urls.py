@@ -17,5 +17,5 @@ urlpatterns = [
     path('signup_user/', views.signup_user, name = "signup_user"),
     path('profile_update/', views.profile_update, name = "profile_update"),
     path('pick_instrument/<int:instrument_id>', views.pick_instrument, name = "pick_instrument"),
-
+    path('save_instrument/', views.save_instrument, name="save_instrument"),
 ]

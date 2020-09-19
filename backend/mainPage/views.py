@@ -121,8 +121,11 @@ def pick_instrument(request, instrument_id):
         choice.save()
     return redirect('icons') 
 
-
-
+def save_instrument(request):
+    Area.areaUser = request.user
+    Area.measuringInstrument = Instrument.objects.filter(instrument = "ab51d3 계측기")
+    Area.save() 
+    return render(request, 'icons')
 
 
 

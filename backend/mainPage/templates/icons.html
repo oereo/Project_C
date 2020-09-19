@@ -392,9 +392,7 @@
         </div>
       </div>
     </div>
-    <!-- Page content -->
-    <form action="{% url 'pick_instrument' instrument.id %}" method="POST">
-        {% csrf_token %}
+   
       <div class="container-fluid mt--6">
         <div class="row justify-content-center">
           <div class=" col ">
@@ -406,7 +404,7 @@
                 <div class="row icon-examples">
                   <div class="col-lg-3 col-md-6">
                     <button type="button" class="btn-icon-clipboard" data-clipboard-text="active-40"
-                      title="Copy to clipboard" value="{{instrument.id}}">
+                      title="Copy to clipboard" onclick="location.href='{% url 'save_instrument' %}'">
                       <div>
                         <img src="{% static 'assets/img/icons/A계측기.png' %}" class="avatar rounded-circle" alt="...">
                         <span>ab51d3 계측기 </span>
