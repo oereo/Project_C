@@ -51,7 +51,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" href="dashboard.html">
+              <a class="nav-link" href="{% url 'index' %}">
                 <i class="ni ni-tv-2 text-primary"></i>
                 <span class="nav-link-text">Dashboard</span>
               </a>
@@ -63,39 +63,21 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" href="map.html">
+              <a class="nav-link active" href="{% url 'map' %}">
                 <i class="ni ni-pin-3 text-primary"></i>
                 <span class="nav-link-text">Google</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="profile.html">
+              <a class="nav-link" href="{% url 'profile' %}">
                 <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Profile</span>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="tables.html">
+              <a class="nav-link" href="{% url 'tables' %}">
                 <i class="ni ni-bullet-list-67 text-default"></i>
                 <span class="nav-link-text">Tables</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="login.html">
-                <i class="ni ni-key-25 text-info"></i>
-                <span class="nav-link-text">Login</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="register.html">
-                <i class="ni ni-circle-08 text-pink"></i>
-                <span class="nav-link-text">Register</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="upgrade.html">
-                <i class="ni ni-send text-dark"></i>
-                <span class="nav-link-text">Upgrade</span>
               </a>
             </li>
           </ul>
@@ -106,7 +88,7 @@
             <span class="docs-normal">Documentation</span>
           </h6>
           <!-- Navigation -->
-          <ul class="navbar-nav mb-md-3">
+          <!-- <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
                 <i class="ni ni-spaceship"></i>
@@ -137,7 +119,7 @@
                 <span class="nav-link-text">Upgrade to PRO</span>
               </a>
             </li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </div>
@@ -442,15 +424,15 @@
   </div>
   <!-- Argon Scripts -->
   <!-- Core -->
-  <script src="../assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="../assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/js-cookie/js.cookie.js"></script>
-  <script src="../assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="../assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
+  <script src="{% static 'assets/vendor/jquery/dist/jquery.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/js-cookie/js.cookie.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js' %}"></script>
   <!-- Optional JS -->
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
   <!-- Argon JS -->
-  <script src="../assets/js/argon.js?v=1.2.0"></script>
+  <script src="{% static 'assets/js/argon.js' %}"></script>
 </body>
 
 </html>

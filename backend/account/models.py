@@ -34,9 +34,7 @@ class UserManager(BaseUserManager):
             phone_number = phone_number,
             team = team,
             business_number = business_number,
-            #seller_name = seller_name,
-            # is_seller = is_seller,
-            #phoneNumber = phoneNumber,
+           
         )
         #user.is_seller = True
         user.set_password(password)
@@ -83,7 +81,7 @@ class User(AbstractBaseUser):
     )
     phone_number = models.CharField(max_length=14, null = False, unique = True)
     date_of_birth = models.DateField()
-    business_number = models.CharField(max_length = 30, null = True, unique = True, choices = MODE_CHOICES) 
+    business_number = models.CharField(max_length = 30, null = True, unique = False, choices = MODE_CHOICES) 
     team = models.CharField(max_length = 10, null = True, unique = True)
     #seller_name = models.CharField(max_length = 30, null = True, unique = True)
 
@@ -110,10 +108,3 @@ class User(AbstractBaseUser):
     def is_staff(self):
         return self.is_admin
 
-class Area(models.Model):
-    areaUser = models.ForeignKey('account.User', on_delete=models.CASCADE, related_name='areas')
-    measuringInstrument = models.CharField(max_length=200)
-    text = models.TextField()
-
-    def __str__(self):
-        return self.text
