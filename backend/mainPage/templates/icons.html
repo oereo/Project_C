@@ -202,7 +202,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-auto">
                                             <!-- Avatar -->
-                                            <img alt="Image placeholder" src="../assets/img/theme/team-2.jpg"
+                                            <img alt="Image placeholder" src="{% static 'assets/img/theme/team-2.jpg' %}"
                                                  class="avatar rounded-circle">
                                         </div>
                                         <div class="col ml--2">
@@ -337,10 +337,10 @@
                            aria-expanded="false">
                             <div class="media align-items-center">
                   <span class="avatar avatar-sm rounded-circle">
-                    <img alt="Image placeholder" src="../assets/img/theme/team-4.jpg">
+                    <img alt="Image placeholder" src="{% static 'assets/img/theme/유저사.jpg' %}">
                   </span>
                                 <div class="media-body  ml-2  d-none d-lg-block">
-                                    <span class="mb-0 text-sm  font-weight-bold">John Snow</span>
+                                    <span class="mb-0 text-sm  font-weight-bold">{{user.email}}</span>
                                 </div>
                             </div>
                         </a>
@@ -407,7 +407,7 @@
                 <div class=" col ">
                     <div class="card">
                         <div class="card-header bg-transparent">
-                            <h3 class="mb-0">기울기 측정 계측기</h3>
+                            <h3 class="mb-0">콘크리트 분야 계측기</h3>
                         </div>
                         <div class="card-body">
                             <div class="row icon-examples">
@@ -497,7 +497,7 @@
                         </div>
 
                         <div class="card-header bg-transparent">
-                            <h3 class="mb-0">벽 균열 폭 측정기</h3>
+                            <h3 class="mb-0">기타 종류 계측기</h3>
                         </div>
                         <div class="card-body">
                             <div class="row icon-examples">
