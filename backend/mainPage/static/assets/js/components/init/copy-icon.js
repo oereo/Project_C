@@ -26,10 +26,10 @@ var CopyIcon = (function() {
 
 		clipboard.on('success', function(e) {
 			$(e.trigger)
-				.attr('title', 'Copied!')
+				.attr('title', '계측기가 저장되었습니다!')
 				.tooltip('_fixTitle')
 				.tooltip('show')
-				.attr('title', 'Copy to clipboard')
+				.attr('title', '계측기 모델을 저장하시겠습니까?')
 				.tooltip('_fixTitle')
 
 			e.clearSelection()
